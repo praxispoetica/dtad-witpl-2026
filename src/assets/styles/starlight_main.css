@@ -8,26 +8,27 @@
 }
 /* Dark mode colors. */
 :root {
-  --primary-button-hover: #ff801f;
+  --primary-button-hover: #002836;
   --backdrop-color: #272727cc;
-  --sl-color-accent: #ff801f;
-  --sl-color-accent-high: #ffa057;
-  --sl-color-accent-low: #562800;
+  --sl-color-accent: #007493;
+  --sl-color-accent-high: #85d5f5;
+  --sl-color-accent-low: #002836;
   --sl-color-black: #181818;
-  --sl-color-gray-1: #eee;
-  --sl-color-gray-2: #c2c2c2;
-  --sl-color-gray-3: #8b8b8b;
-  --sl-color-gray-4: #585858;
-  --sl-color-gray-5: #383838;
-  --sl-color-gray-6: #272727;
+  --sl-color-gray-1: #dff0ff;
+  --sl-color-gray-2: #a8c6df;
+  --sl-color-gray-3: #5592c1;
+  --sl-color-gray-4: oklch(44.2% .017 285.786)
+  --sl-color-gray-5: #003c5f;
+  --sl-color-gray-6: #002944
   --sl-color-white: #fff;
-  --yellow-hsl: 43.3, 96.4%, 56.3%;
-  --overlay-yellow: hsla(var(--yellow-hsl), 0.2);
+  /*--yellow-hsl: 43.3, 96.4%, 56.3%; */
+  /* --overlay-yellow: hsla(var(--yellow-hsl), 0.2); */
   --border: hsla(var(--border-neutral), 0.4);
   --border-neutral: 0, 0%, 25.1%;
 }
 
 /* Light mode colors. */
+/*
 :root[data-theme='light'] {
   --primary-button-hover: #ff801f;
   --backdrop-color: #f6f6f699;
@@ -47,6 +48,7 @@
   --border-yellow: 54.9, 96.7%, 88%;
   --border: hsla(var(--border-yellow), 0.4);
 }
+  */
 
 .page {
   background:
