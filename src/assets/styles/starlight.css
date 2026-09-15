@@ -11,16 +11,20 @@
 :root {
   --border: hsla(var(--border-neutral), 0.4);
   --backdrop-color: #272727cc;
-  --sl-color-accent: #ff801f;
-  --sl-color-accent-high: #ffa057;
-  --sl-color-accent-low: #562800;
-  --sl-color-black: #181818;
-  --sl-color-gray-1: #eee;
-  --sl-color-gray-2: #c2c2c2;
-  --sl-color-gray-3: #8b8b8b;
-  --sl-color-gray-4: #585858;
-  --sl-color-gray-5: #383838;
-  --sl-color-gray-6: #272727;
+  --sl-color-accent-low: #85d5f5;
+  --sl-color-accent: #007493;
+  --sl-color-accent-high: #003849;
+  --sl-color-text-accent-low: #85d5f5;
+  --sl-color-text-accent: #007493;
+  --sl-color-text-accent-high: #003849;
+  --sl-color-bg: #021a2c;
+  --sl-color-black: #021a2c;
+  --sl-color-gray-1: #eff8ff;
+  --sl-color-gray-2: #dff0ff;
+  --sl-color-gray-3: #a8c6df;
+  --sl-color-gray-4: #5592c1;
+  --sl-color-gray-5: #1d5d89;
+  --sl-color-gray-6: #003c5f;
   --sl-color-white: #fff;
   --list-marker-color: #fb923c;
   --border-neutral: 0, 0%, 25.1%;
@@ -33,6 +37,7 @@
   --sl-color-accent: #b73d00;
   --sl-color-accent-high: #562800;
   --sl-color-accent-low: #ffa057;
+  --sl-color-bg: #fff;
   --sl-color-black: #fff;
   --sl-color-gray-1: #272727;
   --sl-color-gray-2: #383838;
@@ -41,7 +46,7 @@
   --sl-color-gray-5: #c2c2c2;
   --sl-color-gray-6: #eee;
   --sl-color-gray-7: #f6f6f6;
-  --sl-color-white: #181818;
+  --sl-color-white: #021a2c;
   --list-marker-color: #fb923c;
   --border-yellow: 54.9, 96.7%, 88%;
 }
@@ -117,17 +122,15 @@ article.card {
 }
 
 .starlight-aside--tip {
-  background: linear-gradient(45deg, #ff512f, #f09819);
+  background: linear-gradient(45deg, #85d5f5, #08b1f3);
   border: none;
   border-radius: 0.5rem;
-  color: #66350c;
 }
 
 .starlight-aside--note {
   background: linear-gradient(45deg, #00b4db, #2193b0);
   border: none;
   border-radius: 0.5rem;
-  color: #004558;
 }
 
 .starlight-aside__icon {
@@ -135,7 +138,7 @@ article.card {
 }
 
 .starlight-aside--tip .starlight-aside__title {
-  color: #ffe0c2;
+  color: #003849;
 }
 
 .starlight-aside--note .starlight-aside__title {
@@ -158,7 +161,8 @@ article.card {
 }
 
 .sl-markdown-content ul:not(:where(.not-content *)) > li:before {
-  background: var(--list-marker-color);
+  /* background: var(--list-marker-color); */
+  background: #021a2c;
   border-radius: 1px;
   content: '';
   height: 2px;
