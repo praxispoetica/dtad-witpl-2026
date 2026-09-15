@@ -108,7 +108,22 @@ export default defineConfig({
       ],
       disable404Route: true,
       customCss: ['./src/assets/styles/starlight.css'],
-      favicon: '/favicon.ico',
+      favicon: 'favicon.ico',
+      head: [
+    			// Add ICO favicon fallback for Safari.
+    			{
+			        tag: 'link',
+  				    attrs: {
+        				rel: 'icon',
+        				href: 'favicon.ico',
+        				sizes: '32x32',
+    		  			type: 'image/x-icon',
+					},
+    			},
+  			  ],
+     logo: {
+        		src: './src/images/vk-180x180.jpg',
+      		},
       components: {
         SiteTitle: './src/components/ui/starlight/SiteTitle.astro',
         Head: './src/components/ui/starlight/Head.astro',
