@@ -1,4 +1,23 @@
-# Starlight Starter Kit: Basics
+# v. o. kapelman author website
+
+Author website and Works online: https://vokapelman.online
+
+---
+
+## Colophon
+
+- Author's homepage, landing pages, etc. via Starlight "splash" pages under regular Astro routing
+- Works via Starlight documentation pages
+
+Originally based on [Screwfast theme template](https://github.com/mearashadowfax/ScrewFast)
+
+> The homepage will be **static** [[ScrewFast]], a template based on  [[Tailwind]], [[Preline UI]],[[Starlight]],etc.
+>
+> Consult [[Tailwind#Tailwind TemplatePlus Templates]] especially their design for specialized features we need
+
+---
+
+## Starlight Starter Kit: Basics
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
