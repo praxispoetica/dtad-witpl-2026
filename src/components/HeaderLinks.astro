@@ -2,16 +2,22 @@
 // src/components/HeaderLinks.astro
 import DefaultSocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
 import type { Props } from '@astrojs/starlight/props';
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => {
+  return pathname === href || pathname === href.replace(/\/$/, '');
+};
 ---
 
 <div class="header-nav-wrapper">
   <nav class="text-links">
-    <a href="/about/">About</a>
-    <a href="/notes/">Notes</a>
+    <a href="/about/" aria-current={isActive('/about/') ? 'page' : undefined}>About</a>
+    <a href="/notes/" aria-current={isActive('/notes/') ? 'page' : undefined}>Notes</a>
   </nav>
   
-  {/* Render the default GitHub icon right after */}
-  <DefaultSocialIcons {...Astro.props} />
+  <div class="social-icons-hover-fix">
+    <DefaultSocialIcons {...Astro.props} />
+  </div>
 </div>
 
 <style>
@@ -29,9 +35,24 @@ import type { Props } from '@astrojs/starlight/props';
     text-decoration: none;
     font-size: var(--sl-text-sm);
     font-weight: 500;
-    transition: color 0.15s ease;
+    transition: color 0.15s ease-in-out;
   }
   .text-links a:hover {
-    color: var(--sl-color-text);
+    color: var(--sl-color-accent);
+  }
+  .text-links a[aria-current="page"] {
+    color: var(--sl-color-accent);
+    font-weight: 600;
+  }
+
+  /* --- FIXING THE SOCIAL LINKS HOVER EFFECT --- */
+  .social-icons-hover-fix :global(a) {
+    color: var(--sl-color-text-muted);
+    transition: color 0.15s ease-in-out;
+  }
+  
+  .social-icons-hover-fix :global(a:hover) {
+    /* Uses your brand's dark-mode/light-mode accent color on hover */
+    color: var(--sl-color-accent) !important; 
   }
 </style>
