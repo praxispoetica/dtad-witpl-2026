@@ -5,6 +5,7 @@ import starlightThemeExquisitus from 'starlight-theme-exquisitus';
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://vokapelman.online',
 	integrations: [
 		starlight({
 			title: 'My Docs',

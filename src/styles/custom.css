@@ -6,6 +6,7 @@
   --sl-color-accent-high: oklch(0.85 0.08 260); /* Used for borders or hover high-contrast text */
   --sl-color-bg: #021a2c; /* Deep navy background color */
   --sl-color-bg-nav: #05253e; /* Matched navigation background color */
+  --sl-exquisitus-cta: #b0cfff; 
 }
 
 /* --- LIGHT THEME OVERRIDES --- */
@@ -16,4 +17,5 @@
   --sl-color-accent-high: oklch(0.20 0.15 260); /* High contrast text color */
   --sl-color-bg: #ffffff; /* white */
   --sl-color-bg-nav: #f0f5fa; /* Matched navigation background color */
+  --sl-exquisitus-cta: #85d5f5;
 }
