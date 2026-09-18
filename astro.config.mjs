@@ -9,8 +9,24 @@ export default defineConfig({
 		starlight({
 			title: 'My Docs',
 			customCss: ['./src/styles/custom.css'],
+			components: {
+				SocialIcons: './src/components/HeaderLinks.astro'
+			},
 			plugins: [starlightThemeExquisitus()],
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			social: [
+				{
+					icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight'
+
+				},
+				/* non-social social icon links can be added here, for example:
+				{
+					icon: 'document', label: 'About', href: '/about/'
+				},
+				{
+					icon: 'pencil', label: 'Notes', href: '/notes/'
+				}
+				*/
+			],
 			sidebar: [
 				{
 					label: 'Guides',

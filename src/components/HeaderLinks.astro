@@ -1,0 +1,37 @@
+---
+// src/components/HeaderLinks.astro
+import DefaultSocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
+import type { Props } from '@astrojs/starlight/props';
+---
+
+<div class="header-nav-wrapper">
+  <nav class="text-links">
+    <a href="/about/">About</a>
+    <a href="/notes/">Notes</a>
+  </nav>
+  
+  {/* Render the default GitHub icon right after */}
+  <DefaultSocialIcons {...Astro.props} />
+</div>
+
+<style>
+  .header-nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .text-links {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .text-links a {
+    color: var(--sl-color-text-muted);
+    text-decoration: none;
+    font-size: var(--sl-text-sm);
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .text-links a:hover {
+    color: var(--sl-color-text);
+  }
+</style>
