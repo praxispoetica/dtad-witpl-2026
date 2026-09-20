@@ -19,3 +19,7 @@
   --sl-color-bg-nav: #f0f5fa; /* Matched navigation background color */
   --sl-exquisitus-cta: #85d5f5;
 }
+
+html {
+  scroll-behavior: smooth;
+}
