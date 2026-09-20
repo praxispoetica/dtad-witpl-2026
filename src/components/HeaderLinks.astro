@@ -2,6 +2,8 @@
 // src/components/HeaderLinks.astro
 import DefaultSocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
 import type { Props } from '@astrojs/starlight/props';
+import { Icon } from 'astro-icon/components';
+
 
 const pathname = Astro.url.pathname;
 const isActive = (href: string) => {
@@ -11,12 +13,14 @@ const isActive = (href: string) => {
 
 <div class="header-nav-wrapper">
   <nav class="text-links">
-    <a href="/about/" aria-current={isActive('/about/') ? 'page' : undefined}>About</a>
-    <a href="/notes/" aria-current={isActive('/notes/') ? 'page' : undefined}>Notes</a>
-    <a href="https://vokapelman.com" target="_blank" rel="noopener noreferrer">Links</a>
+    <a href="/about/" title="About v. o. kapelman" alt="About v. o. kapelman" aria-current={isActive('/about/') ? 'page' : undefined}>About</a>
     <a href="/writings/" aria-current={isActive('/writings/') ? 'page' : undefined}>Writings</a>
-    <a href="/praxispoetica/" aria-current={isActive('/notes/') ? 'page' : undefined}>PraxisPoetica</a>
-    <a href="/praxispoetica/" aria-current={isActive('/notes/') ? 'page' : undefined}>Blog</a>
+    <a href="/praxispoetica/" title="PraxisPoetica Writing Process notes" alt="PraxisPoetica Writing Process notes" aria-current={isActive('/notes/') ? 'page' : undefined}>PraxisPoetica</a>
+    <a href="/praxispoetica/" aria-current={isActive('/notes/') ? 'page' : undefined}>Blog</a> 
+    <a href="https://vokapelman.com" title="v. o. kapelman contact and social links" alt="v. o. kapelman contact and social links" target="_blank" rel="noopener noreferrer" class="menu-link">
+      Contact
+      <Icon name="lucide:external-link" class="icon-inline" />
+    </a>
   </nav>
   
   <div class="social-icons-hover-fix">
@@ -47,6 +51,12 @@ const isActive = (href: string) => {
   .text-links a[aria-current="page"] {
     color: var(--sl-color-accent);
     font-weight: 600;
+  }
+
+  .menu-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   /* --- FIXING THE SOCIAL LINKS HOVER EFFECT --- */
