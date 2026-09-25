@@ -21,6 +21,18 @@ const { title = "v. o. kapelman online" } = Astro.props.frontmatter || Astro.pro
   </head>
   <body class="custom-body-canvas">
     
+    <!-- Minimalist Text-Only Header Navbar -->
+    <header class="custom-navbar">
+      <div class="navbar-container">
+        <a href="/" class="navbar-brand">v. o. kapelman online</a>
+        <nav class="navbar-links">
+          <a href="/" class="nav-link active">Home</a>
+          <a href="/writings/" class="nav-link">Writings</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Centering shield for clean, stable margins -->
     <div class="layout-centering-shield">
       <main class="custom-layout-wrapper">
         <slot />
@@ -33,27 +45,71 @@ const { title = "v. o. kapelman online" } = Astro.props.frontmatter || Astro.pro
 <style>
   @import "../styles/standalone.css";
 
+  /* Canvas Environment */
   .custom-body-canvas {
-    background-color: var(--color-page-bg) !important;
-    color: var(--color-page-text) !important;
+    background-color: var(--sl-color-bg) !important;
+    color: var(--sl-color-text) !important;
     min-height: 100vh;
     margin: 0;
+    padding: 0;
   }
 
+  /* Navbar Structural Alignment */
+  .custom-navbar {
+    width: 100%;
+    border-bottom: 1px solid var(--sl-color-hairline) !important;
+    background-color: var(--sl-color-bg) !important;
+  }
+
+  .navbar-container {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .navbar-brand {
+    font-weight: 700;
+    text-decoration: none !important;
+    color: var(--sl-color-text) !important;
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    text-decoration: none !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--sl-color-gray-text) !important;
+    transition: color 0.2s ease;
+  }
+
+  /* Target the hover state explicitly using local styles to override locks */
+  .nav-link:hover, .nav-link.active {
+    color: var(--sl-color-accent) !important;
+  }
+
+  /* Centering Shield Rules */
   .layout-centering-shield {
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
+    box-sizing: border-box;
   }
 
   @utility custom-layout-wrapper {
     @apply prose max-w-4xl w-full block;
-    margin: 5rem 0 !important; 
+    margin: 4rem 0 !important; 
   }
 
-  /* Force typography definitions to follow the master theme state mapping */
   :global(html) .custom-layout-wrapper,
   :global(html[data-theme="dark"]) .custom-layout-wrapper {
     @apply prose-invert;
@@ -62,28 +118,33 @@ const { title = "v. o. kapelman online" } = Astro.props.frontmatter || Astro.pro
     @apply prose-none;
   }
 
-  /* Scoped layout injections matching your preferred contrast targets */
+  /* Content Structural Element Color Overrides */
   .custom-layout-wrapper :global(h2),
   .custom-layout-wrapper :global(h3) {
-    color: var(--color-page-accent) !important;
+    color: var(--sl-color-accent) !important;
     font-weight: 900 !important;
     margin-top: 2.5rem !important;
     margin-bottom: 1.25rem !important;
   }
 
   .custom-layout-wrapper :global(p) {
-    color: var(--color-page-gray) !important;
+    color: var(--sl-color-gray-text) !important;
     line-height: 1.75 !important;
   }
 
+  /* Direct property matching onto anchor nodes inside the markdown content area */
   .custom-layout-wrapper :global(a) {
-    color: var(--color-page-accent-high) !important;
+    color: var(--sl-color-accent-high) !important;
     text-decoration: underline !important;
-    text-underline-offset: 4px;
+    text-underline-offset: 4px !important;
+  }
+
+  .custom-layout-wrapper :global(a:hover) {
+    color: var(--sl-color-accent) !important;
   }
 
   .custom-layout-wrapper :global(hr) {
-    border-color: var(--color-page-border) !important;
+    border-color: var(--sl-color-hairline) !important;
     margin: 3rem 0 !important;
   }
 </style>
