@@ -1,0 +1,78 @@
+---
+// src/layouts/CustomLayout.astro
+const { title = "v. o. kapelman online" } = Astro.props.frontmatter || Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <script is:inline>
+      const theme = localStorage.getItem('starlight-theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body class="custom-body-canvas">
+    
+    <!-- 
+      This centers the column layout cleanly on the screen,
+      completely bypassing Starlight's side-snapping resets.
+    -->
+    <div class="layout-centering-shield">
+      <main class="custom-layout-wrapper">
+        <slot />
+      </main>
+    </div>
+
+  </body>
+</html>
+
+<style>
+  @import "../styles/standalone.css";
+  @plugin "@tailwindcss/typography";
+
+  :global(html.dark) .custom-body-canvas {
+    background-color: #020617; /* Matches Starlight's deep theme exactly */
+    color: #f8fafc;
+  }
+
+  :global(html:not(.dark)) .custom-body-canvas {
+    background-color: #ffffff;
+    color: #0f172a;
+  }
+
+  /* 
+    The Shield Layer: Forces a clean, centered Flexbox layout grid 
+    that Starlight's style injection cannot break apart.
+  */
+  .layout-centering-shield {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  @utility custom-layout-wrapper {
+    @apply prose prose-slate max-w-4xl w-full block;
+    /* Forces explicit editorial vertical and side margins */
+    margin: 5rem 0 !important; 
+  }
+
+  :global(html.dark) .custom-layout-wrapper {
+    @apply prose-invert;
+  }
+
+  /* Explicit sky-400 header overrides */
+  .custom-layout-wrapper :global(h2),
+  .custom-layout-wrapper :global(h3) {
+    @apply text-sky-400 font-black mt-8 mb-4 !important;
+  }
+</style>

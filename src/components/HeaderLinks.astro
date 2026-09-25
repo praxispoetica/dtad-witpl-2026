@@ -13,10 +13,19 @@ const isActive = (href: string) => {
 
 <div class="header-nav-wrapper">
   <nav class="text-links">
-    <a href="/about/" title="About v. o. kapelman" alt="About v. o. kapelman" aria-current={isActive('/about/') ? 'page' : undefined}>About</a>
-    <a href="/writings/" aria-current={isActive('/writings/') ? 'page' : undefined}>Writings</a>
-    <a href="/praxispoetica/" title="PraxisPoetica Writing Process notes" alt="PraxisPoetica Writing Process notes" aria-current={isActive('/praxispoetica/') ? 'page' : undefined}>PraxisPoetica</a>
-    <a href="/blog/" aria-current={isActive('/blog/') ? 'page' : undefined}>Blog</a> 
+    <!-- --- Starlight title correctly links to subpath "writings" so not necessary ---
+    <a href="/writings/" title="v. o. kapelman writings home" alt="v. o. kapelman writings home" aria-current={isActive('/writings/') ? 'page' : undefined} class="menu-link">
+      Writings
+      <Icon name="lucide:house" class="icon-inline menu-link" />
+    </a> 
+    -->
+    <a href="/" title="v. o. kapelman online" alt="v. o. kapelman online" class="menu-link">
+      Homepage
+      <Icon name="lucide:house" class="icon-inline" />
+    </a>
+    <a href="/writings/about/" title="About v. o. kapelman" alt="About v. o. kapelman" aria-current={isActive('/writings/about/') ? 'page' : undefined} class="menu-link">About</a>
+    <a href="/writings/praxispoetica/" title="PraxisPoetica Writing Process notes" alt="PraxisPoetica Writing Process notes" aria-current={isActive('/writings/praxispoetica/') ? 'page' : undefined}>PraxisPoetica</a>
+    <!--<a href="/writings/blog/" aria-current={isActive('/blog/') ? 'page' : undefined}>Blog</a>  -->
     <a href="https://vokapelman.com" title="v. o. kapelman contact and social links" alt="v. o. kapelman contact and social links" target="_blank" rel="noopener noreferrer" class="menu-link">
       Contact
       <Icon name="lucide:external-link" class="icon-inline" />

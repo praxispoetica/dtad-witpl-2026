@@ -3,6 +3,9 @@ title: Example Reference
 description: A reference page in my new Starlight docs site.
 ---
 
+import { Tabs, TabItem, Card, CardGrid } from '@astrojs/starlight/components';
+
+
 Reference pages are ideal for outlining how things work in terse and clear terms.
 Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what you're documenting.
 
@@ -22,6 +25,15 @@ Less concerned with telling a story or addressing a specific use case, they shou
 
 - Read [about reference](https://diataxis.fr/reference/) in the Diátaxis framework
 
+<CardGrid>
+  <Card title="Check this out" icon="open-book">
+    Interesting content you want to highlight.
+  </Card>
+  <Card title="Other feature" icon="information">
+    More information you want to share.
+  </Card>
+</CardGrid>
+
 ## Further reading
 
 - Read [about reference](https://diataxis.fr/reference/) in the Diátaxis framework
@@ -29,6 +41,15 @@ Less concerned with telling a story or addressing a specific use case, they shou
 ## Further reading
 
 - Read [about reference](https://diataxis.fr/reference/) in the Diátaxis framework
+
+<Tabs>
+  <TabItem label="Stars" icon="star">
+    Sirius, Vega, Betelgeuse
+  </TabItem>
+  <TabItem label="Moons" icon="moon">
+    Io, Europa, Ganymede
+  </TabItem>
+</Tabs>
 
 ## Further reading
 

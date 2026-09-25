@@ -1,0 +1,57 @@
+---
+// Import your standalone stylesheet. 
+// Tailwind will parse and inject its utilities automatically here.
+import '../styles/standalone.css';
+
+// Accept frontmatter properties passed down from your MDX files
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Author Portfolio", 
+  description = "Welcome to my standalone custom author page." 
+} = Astro.props.frontmatter || Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col justify-between">
+    
+    <!-- Simple Standalone Navigation Header (Pure Tailwind) -->
+    <header class="border-b border-slate-900 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+      <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="font-bold text-lg tracking-tight text-white hover:text-sky-400 transition-colors">
+          Victor Opas Kane
+        </a>
+        <div class="flex items-center gap-6 text-sm font-medium text-slate-400">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <a href="/read/" class="px-3 py-1.5 rounded-md bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold transition-colors">
+            Read Books Free
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+      <!-- The <slot /> acts as the placeholder where your MDX file content drops in -->
+      <slot />
+    </main>
+
+    <!-- Simple Page Footer -->
+    <footer class="border-t border-slate-900 py-8 bg-slate-950 text-center text-xs text-slate-500">
+      <p>&copy; {new Date().getFullYear()} Victor Opas Kane. All rights reserved.</p>
+    </footer>
+
+  </body>
+</html>
+
+

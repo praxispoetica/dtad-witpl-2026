@@ -12,11 +12,11 @@ hero:
     </span>
   tagline: A writer all my life. Like a legal practice. Or a medical practice. A factory worker. PraxisPoetica. Still writing. But now, living a writing publishing practice.
   image:
-    file: ../../assets/vk-1024x1024.jpg
+    file: ../../../assets/vk-1024x1024.jpg
     alt: v. o. kapelman - Photo by Anonymous (friend), used with permission
   actions:
     - text: Example Guide
-      link: /guides/example/
+      link: /writings/guides/example/
       icon: right-arrow
     - text: Read the Starlight docs
       link: https://starlight.astro.build
@@ -26,16 +26,16 @@ hero:
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 import {Image} from 'astro:assets';
-import myImage from '../../assets/vk-1024x1024.jpg';
+import myImage from '../../../assets/vk-1024x1024.jpg';
 
 ## Writings
 
 <CardGrid stagger>
 	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+		Edit `src/content/docs/writings/index.mdx` to see this page change.
 	</Card>
 	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
+		Delete `template: splash` in `src/content/docs/writings/index.mdx` to display a
 		sidebar on this page.
 	</Card>
 	<Card title="Add new content" icon="add-document">
@@ -56,14 +56,14 @@ import myImage from '../../assets/vk-1024x1024.jpg';
     <div style="display: flex; justify-content: center; margin: 1.5rem 0;">
       <Image src={myImage} alt="v. o. kapelman - Photo by Anonymous (friend), used with permission" width="200" height="200" style="border-radius: 0.5rem;"/>
     </div>
-		Edit `src/content/docs/index.mdx` to see this page change.
+		Edit `src/content/docs/writings/index.mdx` to see this page change.
 	</Card>
 	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
+		Delete `template: splash` in `src/content/docs/writings/index.mdx` to display a
 		sidebar on this page.
 	</Card>
 	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+		Add Markdown or MDX files to `src/content/docs/writings/` to create new pages.
 	</Card>
 	<Card title="Configure your site" icon="setting">
 		Edit your `sidebar` and other config in `astro.config.mjs`.

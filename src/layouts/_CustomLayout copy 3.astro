@@ -1,0 +1,68 @@
+---
+// src/layouts/CustomLayout.astro
+const { title = "v. o. kapelman online" } = Astro.props.frontmatter || Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body class="custom-body-canvas">
+    
+    <!-- Using local class hooks lets the scoped style block hit the target perfectly -->
+    <main class="custom-layout-wrapper">
+      <slot />
+    </main>
+
+  </body>
+</html>
+
+<style>
+  @import "../styles/standalone.css";
+  @plugin "@tailwindcss/typography";
+
+  /* 
+    1. Define custom, locally scoped utilities for Tailwind v4.
+    This injects your parameters cleanly without leaking into Starlight!
+  */
+  @utility custom-body-canvas {
+    background-color: #020617; /* Slate-950 */
+    color: #f8fafc; /* Slate-50 */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @utility custom-layout-wrapper {
+    @apply prose prose-slate prose-invert max-w-4xl w-full block;
+    margin: 4rem auto; /* Explicitly forces your margins back */
+  }
+
+  /* 
+    2. Target the child markdown elements arriving via the slot.
+    Because this block uses component-scoped CSS, it takes supreme priority!
+  */
+  .custom-layout-wrapper :global(h1),
+  .custom-layout-wrapper :global(h2),
+  .custom-layout-wrapper :global(h3) {
+    color: #38bdf8; /* Explicit sky-400 */
+    font-weight: 900;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .custom-layout-wrapper :global(p) {
+    color: #e2e8f0; /* Slate-200 body text */
+    line-height: 1.75;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .custom-layout-wrapper :global(a) {
+    color: #38bdf8;
+    text-decoration: underline;
+  }
+</style>

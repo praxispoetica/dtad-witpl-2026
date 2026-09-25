@@ -9,7 +9,14 @@ import icon from 'astro-icon';
 export default defineConfig({
     site: 'https://vokapelman.online',
     integrations: [starlight({
-        title: 'My Docs',
+        title: 'v. o. kapelman writings',
+        defaultLocale: 'writings',
+        locales: {
+            writings: {
+                label: 'Writings',
+                lang: 'en',
+            },
+        },
         favicon: 'favicon.ico',
         head: [
             // Add ICO favicon fallback for Safari.
@@ -24,8 +31,6 @@ export default defineConfig({
             },
   			],
         customCss: ['./src/styles/custom.css'],
-        /*
-        */
         components: {
             SocialIcons: './src/components/HeaderLinks.astro'
         },

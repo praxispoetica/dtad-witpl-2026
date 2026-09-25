@@ -1,0 +1,47 @@
+---
+// src/layouts/CustomLayout.astro
+const { title = "v. o. kapelman online" } = Astro.props.frontmatter || Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-slate-950 text-white p-8 flex flex-col items-center min-h-screen">
+
+    
+    <!-- This container passes your compiled classes to the markdown slot -->
+    <main class="custom-homepage">
+      <slot />
+    </main>
+
+  </body>
+</html>
+
+<style>
+  @import "../styles/standalone.css";
+  @plugin "@tailwindcss/typography";
+
+  /* 
+    By wrapping these definitions inside Tailwind's native utilities layer,
+    we ensure they evaluate with proper specificity over Starlight's defaults.
+  */
+  @layer utilities {
+    .custom-homepage {
+      @apply prose prose-slate prose-invert max-w-4xl w-full block mx-auto my-12;
+    }
+
+    /* Force the custom layout text formatting states directly down the node stack */
+    .custom-homepage h1,
+    .custom-homepage h2,
+    .custom-homepage h3 {
+      @apply text-sky-400 font-black mt-8 mb-4;
+    }
+
+    .custom-homepage p {
+      @apply text-slate-200 leading-relaxed my-4;
+    }
+  }
+</style>

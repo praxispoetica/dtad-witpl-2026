@@ -1,0 +1,5 @@
+/* src/styles/standalone.css */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@source "../pages/**/*.{md,mdx,astro}";
