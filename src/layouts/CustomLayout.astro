@@ -21,10 +21,6 @@ const { title = "v. o. kapelman online" } = Astro.props.frontmatter || Astro.pro
   </head>
   <body class="custom-body-canvas">
     
-    <!-- 
-      This centers the column layout cleanly on the screen,
-      completely bypassing Starlight's side-snapping resets.
-    -->
     <div class="layout-centering-shield">
       <main class="custom-layout-wrapper">
         <slot />
@@ -36,22 +32,14 @@ const { title = "v. o. kapelman online" } = Astro.props.frontmatter || Astro.pro
 
 <style>
   @import "../styles/standalone.css";
-  @plugin "@tailwindcss/typography";
 
-  :global(html.dark) .custom-body-canvas {
-    background-color: #020617; /* Matches Starlight's deep theme exactly */
-    color: #f8fafc;
+  .custom-body-canvas {
+    background-color: var(--color-page-bg) !important;
+    color: var(--color-page-text) !important;
+    min-height: 100vh;
+    margin: 0;
   }
 
-  :global(html:not(.dark)) .custom-body-canvas {
-    background-color: #ffffff;
-    color: #0f172a;
-  }
-
-  /* 
-    The Shield Layer: Forces a clean, centered Flexbox layout grid 
-    that Starlight's style injection cannot break apart.
-  */
   .layout-centering-shield {
     display: flex !important;
     justify-content: center !important;
@@ -61,18 +49,41 @@ const { title = "v. o. kapelman online" } = Astro.props.frontmatter || Astro.pro
   }
 
   @utility custom-layout-wrapper {
-    @apply prose prose-slate max-w-4xl w-full block;
-    /* Forces explicit editorial vertical and side margins */
+    @apply prose max-w-4xl w-full block;
     margin: 5rem 0 !important; 
   }
 
-  :global(html.dark) .custom-layout-wrapper {
+  /* Force typography definitions to follow the master theme state mapping */
+  :global(html) .custom-layout-wrapper,
+  :global(html[data-theme="dark"]) .custom-layout-wrapper {
     @apply prose-invert;
   }
+  :global(html[data-theme="light"]) .custom-layout-wrapper {
+    @apply prose-none;
+  }
 
-  /* Explicit sky-400 header overrides */
+  /* Scoped layout injections matching your preferred contrast targets */
   .custom-layout-wrapper :global(h2),
   .custom-layout-wrapper :global(h3) {
-    @apply text-sky-400 font-black mt-8 mb-4 !important;
+    color: var(--color-page-accent) !important;
+    font-weight: 900 !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .custom-layout-wrapper :global(p) {
+    color: var(--color-page-gray) !important;
+    line-height: 1.75 !important;
+  }
+
+  .custom-layout-wrapper :global(a) {
+    color: var(--color-page-accent-high) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+  }
+
+  .custom-layout-wrapper :global(hr) {
+    border-color: var(--color-page-border) !important;
+    margin: 3rem 0 !important;
   }
 </style>

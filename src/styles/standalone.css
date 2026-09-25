@@ -2,4 +2,44 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@source "../layouts/**/*.astro";
 @source "../pages/**/*.{md,mdx,astro}";
+
+@layer exquisitus {
+  /* 
+    DEFAULT STATE & DARK OVERRIDES:
+    This guarantees that the page falls back to dark mode natively.
+  */
+  :root, 
+  html, 
+  html[data-theme="dark"] {
+    --sl-color-bg: #020617;
+    --sl-color-text: #f8fafc;
+    --sl-color-hairline: #1e293b;
+    --sl-color-accent: #38bdf8;
+    --sl-color-accent-high: #7dd3fc;
+    --sl-color-gray-text: #cbd5e1;
+    color-scheme: dark;
+  }
+
+  /* Swaps style definitions ONLY if Starlight sets light mode */
+  html[data-theme="light"] {
+    --sl-color-bg: #ffffff;
+    --sl-color-text: #0f172a;
+    --sl-color-hairline: #e2e8f0;
+    --sl-color-accent: #0284c7;
+    --sl-color-accent-high: #0369a1;
+    --sl-color-gray-text: #334155;
+    color-scheme: light;
+  }
+
+  /* Wire these system names clean into Tailwind v4 variables */
+  @theme {
+    --color-page-bg: var(--sl-color-bg);
+    --color-page-text: var(--sl-color-text);
+    --color-page-border: var(--sl-color-hairline);
+    --color-page-accent: var(--sl-color-accent);
+    --color-page-accent-high: var(--sl-color-accent-high);
+    --color-page-gray: var(--sl-color-gray-text);
+  }
+}
